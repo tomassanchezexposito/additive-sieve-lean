@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this formalization, please cite this software and the accompanying mathematical work."
+title: "Formal Verification of an Additive Sieve on an Arithmetic Progression"
+type: software
+authors:
+  - family-names: "Sánchez Expósito"
+    given-names: "Tomás"
+version: "1.0.0"
+date-released: "2026-09-17"
+keywords:
+  - Lean
+  - Mathlib
+  - formal verification
+  - prime numbers
+  - additive sieve
+  - twin primes
