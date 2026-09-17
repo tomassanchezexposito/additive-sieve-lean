@@ -5,8 +5,9 @@ type: software
 authors:
   - family-names: "Sánchez Expósito"
     given-names: "Tomás"
-version: "1.0.0"
+version: "1.0.1"
 date-released: "2026-09-17"
+doi: "10.5281/zenodo.22806926"
 keywords:
   - Lean
   - Mathlib

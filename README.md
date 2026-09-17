@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22806926.svg)](https://doi.org/10.5281/zenodo.22806926)
+
 # Additive Sieve — Lean 4 Formal Verification
 
 Formal Lean 4 / Mathlib verification accompanying the additive-sieve work by **Tomás Sánchez Expósito**.
@@ -22,57 +24,25 @@ The development formalizes:
 
 ## Important scope condition
 
-The final theorem is **conditional** on `CompleteOddPrimeBatchUpTo`.  
-In other words, the Lean development verifies the correctness of the sieve and its compressed implementation. A concrete numerical candidate is certified as prime/twin-prime only after the required completeness hypothesis is established for that candidate.
+The final theorem is **conditional** on `CompleteOddPrimeBatchUpTo`.
+
+The Lean development verifies the correctness of the sieve and its compressed implementation. A concrete numerical candidate is certified as prime/twin-prime only after the required completeness hypothesis is established for that candidate.
 
 ## Validation environment
 
-The source was checked in Lean Web on **2026-09-17** using:
+The source was checked on **2026-09-17** using:
 
 - Lean `v4.35.0-rc1`
-- Mathlib available in the Lean Web environment
+- Mathlib pinned through the Lake project
 - Result: `All Messages (0)`
+- Local build: successful
 
-For a long-term reproducible archive, create a local Lake project, pin the Lean/Mathlib dependency, run the build, and commit the generated `lake-manifest.json`.
+## Archived release
 
-## Suggested repository structure
+Version `v1.0.1` is permanently archived on Zenodo.
 
-```text
-AdditiveSieveFormalization/
-├── AdditiveSieveFormalization.lean
-├── README.md
-└── CITATION.cff
-```
-
-For stronger reproducibility, also include:
-
-```text
-lean-toolchain
-lakefile.toml   (or lakefile.lean)
-lake-manifest.json
-```
-
-## Local Lean / Mathlib project
-
-The official Lean documentation provides a Mathlib project template. A typical starting command is:
-
-```bash
-lake +leanprover-community/mathlib4:lean-toolchain new AdditiveSieveFormalization math
-```
-
-Then place the Lean source in the generated project, obtain the Mathlib cache, and build:
-
-```bash
-lake exe cache get
-lake build
-```
-
-Commit the resulting dependency manifest so that the Mathlib revision is recorded.
+**DOI:** `10.5281/zenodo.22806926`
 
 ## Citation
 
-A `CITATION.cff` file is included so GitHub and archival services can expose citation metadata.
-
-## License
-
-Choose a software license before the public release. A permissive license such as MIT is common for research code, but the choice is yours. Add the corresponding `LICENSE` file to the repository before publishing a release.
+Sánchez Expósito, Tomás. *Formal Verification of an Additive Sieve on an Arithmetic Progression*. Lean 4 / Mathlib formalization, version 1.0.1, Zenodo, 2026. DOI: 10.5281/zenodo.22806926.
