@@ -1,17 +1,30 @@
 cff-version: 1.2.0
-message: "If you use this formalization, please cite this software and the accompanying mathematical work."
-title: "Formal Verification of an Additive Sieve on an Arithmetic Progression"
+message: "If you use this formalization, please cite both the software release and the related paper."
+title: "Formal Verification of an Additive Sieve on an Arithmetic Progression for Prime Number Generation"
+version: "2.0.0"
+date-released: "2026-09-19"
 type: software
 authors:
   - family-names: "Sánchez Expósito"
     given-names: "Tomás"
-version: "1.0.1"
-date-released: "2026-09-17"
-doi: "10.5281/zenodo.22806926"
+repository-code: "https://github.com/tomassanchezexposito/additive-sieve-lean"
+url: "https://github.com/tomassanchezexposito/additive-sieve-lean"
 keywords:
-  - Lean
-  - Mathlib
-  - formal verification
-  - prime numbers
-  - additive sieve
-  - twin primes
+  - "Lean 4"
+  - "Mathlib"
+  - "prime numbers"
+  - "sieve"
+  - "formal verification"
+  - "arithmetic progression"
+identifiers:
+  - type: doi
+    value: "10.2139/ssrn.5705571"
+    description: "DOI of the related SSRN paper"
+preferred-citation:
+  type: article
+  title: "An Additive Sieve on an Arithmetic Progression for Prime Number Generation"
+  authors:
+    - family-names: "Sánchez Expósito"
+      given-names: "Tomás"
+  year: 2026
+  doi: "10.2139/ssrn.5705571"

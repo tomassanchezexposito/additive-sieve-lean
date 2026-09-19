@@ -1,48 +1,95 @@
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22806926.svg)](https://doi.org/10.5281/zenodo.22806926)
+# additive-sieve-lean
 
-# Additive Sieve — Lean 4 Formal Verification
+Formal verification in **Lean 4 + Mathlib** of the algorithm introduced in:
 
-Formal Lean 4 / Mathlib verification accompanying the additive-sieve work by **Tomás Sánchez Expósito**.
+**Tomás Sánchez Expósito, _An Additive Sieve on an Arithmetic Progression for Prime Number Generation_.**
 
-## Main file
+Related paper:
+- SSRN Abstract ID: **5705571**
+- DOI: **10.2139/ssrn.5705571**
 
-- `AdditiveSieveFormalization.lean`
+## Scope of version 2.0.0
 
-The development formalizes:
+Version 2.0.0 reorganizes this repository around the formal verification of the original additive-sieve paper.
 
-- the progression `C n = 3 + 2*n`;
-- additive composite marking;
-- the `p²` square boundary;
-- adjacent candidates and the `6m ± 1` twin-prime form;
-- forbidden modular classes;
-- finite sieve batches and independent shards;
-- batch-product / `gcd` equivalence;
-- modular reduction of a large reference base;
-- compressed `κ` coordinates and explicit forbidden residues;
-- completeness of a finite odd-prime batch up to the square-root boundary;
-- the final equivalence between twin-prime status and the compressed residue-only batch test, under the completeness hypothesis.
+The formal development proves the correctness of the algorithm on the arithmetic progression
 
-## Important scope condition
+`C n = 3 + 2*n`
 
-The final theorem is **conditional** on `CompleteOddPrimeBatchUpTo`.
+and models the paper's dictionary `M` extensionally as a finite set of marker pairs `(composite, prime)`.
 
-The Lean development verifies the correctness of the sieve and its compressed implementation. A concrete numerical candidate is certified as prime/twin-prime only after the required completeness hypothesis is established for that candidate.
+The later compressed/twin-prime work is intentionally not part of the current main formalization and is intended to be maintained as a separate research work.
 
-## Validation environment
+## Main verified results
 
-The source was checked on **2026-09-17** using:
+The Lean development proves that:
 
-- Lean `v4.35.0-rc1`
-- Mathlib pinned through the Lake project
-- Result: `All Messages (0)`
-- Local build: successful
+- every prime greater than `2` occurs in the base progression;
+- the additive marking identity is correct;
+- the first marker introduced for a newly discovered prime is its square;
+- every stored marker is mathematically sound;
+- the global scheduling invariant is preserved by every state transition;
+- the current candidate is unmarked **if and only if** it is prime;
+- prime candidates are appended and non-prime candidates are skipped;
+- after every finite number of iterations, the output contains exactly the primes different from `2` below the next candidate;
+- the output is strictly increasing;
+- every odd prime is eventually generated;
+- the 1000 values printed in Table 1 of the paper are verified exactly, from `3` through `7927`.
 
-## Archived release
+## Principal theorems
 
-Version `v1.0.1` is permanently archived on Zenodo.
+- `runSteps_unmarked_iff_prime`
+- `mem_runSteps_primes_iff`
+- `runSteps_primes_strictlyIncreasing`
+- `every_odd_prime_eventually_generated`
+- `additiveSieve_algorithm_correct_at_every_step`
+- `additiveSieve_generates_exactly_odd_primes`
+- `paper_table_end_to_end_validation`
+- `paper1_final_validation`
 
-**DOI:** `10.5281/zenodo.22806926`
+## Build
+
+Requirements are pinned by `lean-toolchain` and `lakefile.toml`.
+
+```text
+lake update
+lake exe cache get
+lake build
+```
+
+A successful build should finish without Lean errors.
+
+## Source file
+
+The main formalization is:
+
+```text
+AdditiveSieveAlgorithm.lean
+```
+
+## Validation
+
+The cumulative development used to create this publication version was checked in Lean Web on **2026-09-19** and returned:
+
+```text
+All Messages (0)
+```
+
+The repository build should also be checked locally before creating the GitHub release.
+
+## Versioning
+
+- `v1.0.1` remains preserved in Git history and the existing GitHub/Zenodo release history.
+- `v2.0.0` is the publication-oriented formalization of the original 2025 additive-sieve paper.
 
 ## Citation
 
-Sánchez Expósito, Tomás. *Formal Verification of an Additive Sieve on an Arithmetic Progression*. Lean 4 / Mathlib formalization, version 1.0.1, Zenodo, 2026. DOI: 10.5281/zenodo.22806926.
+Until the Zenodo DOI for the `v2.0.0` software release is minted, cite the related paper as:
+
+> Sánchez Expósito, Tomás. _An Additive Sieve on an Arithmetic Progression for Prime Number Generation_. SSRN, DOI: 10.2139/ssrn.5705571.
+
+After the `v2.0.0` GitHub release is archived by Zenodo, the version-specific Zenodo DOI should be added here and to `CITATION.cff`.
+
+## License
+
+MIT. See `LICENSE`.
