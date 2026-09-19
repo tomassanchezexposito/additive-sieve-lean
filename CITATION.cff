@@ -1,30 +1,29 @@
 cff-version: 1.2.0
-message: "If you use this formalization, please cite both the software release and the related paper."
-title: "Formal Verification of an Additive Sieve on an Arithmetic Progression for Prime Number Generation"
-version: "2.0.0"
-date-released: "2026-09-19"
+message: "If you use this software, please cite the Zenodo release and the associated SSRN paper."
+title: "Formal Verification of the Additive Sieve Algorithm"
 type: software
 authors:
   - family-names: "Sánchez Expósito"
     given-names: "Tomás"
+version: "2.0.0"
+date-released: "2026-09-19"
 repository-code: "https://github.com/tomassanchezexposito/additive-sieve-lean"
-url: "https://github.com/tomassanchezexposito/additive-sieve-lean"
+url: "https://doi.org/10.5281/zenodo.22843511"
+doi: "10.5281/zenodo.22843511"
+license: MIT
 keywords:
-  - "Lean 4"
-  - "Mathlib"
-  - "prime numbers"
-  - "sieve"
-  - "formal verification"
-  - "arithmetic progression"
-identifiers:
-  - type: doi
-    value: "10.2139/ssrn.5705571"
-    description: "DOI of the related SSRN paper"
+  - prime numbers
+  - sieve
+  - arithmetic progression
+  - Lean 4
+  - Mathlib
+  - formal verification
 preferred-citation:
   type: article
-  title: "An Additive Sieve on an Arithmetic Progression for Prime Number Generation"
   authors:
     - family-names: "Sánchez Expósito"
       given-names: "Tomás"
+  title: "An Additive Sieve on an Arithmetic Progression for Prime Number Generation: Formal Verification in Lean 4"
   year: 2026
   doi: "10.2139/ssrn.5705571"
+  url: "https://doi.org/10.2139/ssrn.5705571"
